@@ -7,11 +7,12 @@ int main()
 {
     int arr[5] = {4, 5, 7, 3, 2};   // 正确答案 : 2,3,4,5,7
     int size = sizeof(arr) / sizeof(arr[0]);
-    int counts = 0;         //counts:存儲循环运行次数
+    int counts = 0;         //counts:存儲循环运行次数,从0开始计数
     while (1)
     {
         
         int i = 1;
+        // 每一次可以比上一次少进行一次比较,即减少counts次
         for ( i = 1 ; i < size - counts; i++)
         {
            
@@ -23,7 +24,10 @@ int main()
                 arr[i] = z;         
             } 
         }
+        //当i=2跳出循环时,证明arr[0]和arr[1]的判断交换已经结束,
+        // 且后面的顺序也为正确,可直接跳出循环
         if (i==2)  break;
+
         counts++;
 
     }
@@ -34,17 +38,6 @@ int main()
     }
     
 }
-
-
-
-
-
-
-
-
-
-
-
 
 
 
